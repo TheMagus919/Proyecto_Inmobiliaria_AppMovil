@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.agusoft.inmobiliaria.ui.perfil.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.agusoft.inmobiliaria.ui.inicio.InicioFragment"
+        android:label="Ubicación"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/nav_inmuebles"
+        android:name="com.agusoft.inmobiliaria.ui.inmuebles.InmueblesFragment"
+        android:label="Inmuebles"
+        tools:layout="@layout/fragment_inmuebles" >
+        <action
+            android:id="@+id/action_nav_inmuebles_to_detallesInmueblesFragment"
+            app:destination="@id/detallesInmueblesFragment" />
+        <action
+            android:id="@+id/action_nav_inmuebles_to_inmuebleAgregarFragment"
+            app:destination="@id/inmuebleAgregarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_inquilinos"
+        android:name="com.agusoft.inmobiliaria.ui.inquilinos.InquilinosFragment"
+        android:label="Inquilinos"
+        tools:layout="@layout/fragment_inquilinos">
+        <action
+            android:id="@+id/action_nav_inquilinos_to_detallesInquilinosFragment"
+            app:destination="@id/detallesInquilinosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_contratos"
+        android:name="com.agusoft.inmobiliaria.ui.contratos.ContratosFragment"
+        android:label="Contratos Vigentes"
+        tools:layout="@layout/fragment_contratos">
+        <action
+            android:id="@+id/action_nav_contratos_to_detallesContratosFragment"
+            app:destination="@id/detallesContratosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallesInquilinosFragment"
+        android:name="com.agusoft.inmobiliaria.ui.inquilinos.detalles.DetallesInquilinosFragment"
+        android:label="Inquilino"
+        tools:layout="@layout/fragment_detalles_inquilinos">
+        <action
+            android:id="@+id/action_detallesInquilinosFragment_to_nav_inquilinos"
+            app:destination="@id/nav_inquilinos" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallesInmueblesFragment"
+        android:name="com.agusoft.inmobiliaria.ui.inmuebles.detalles.DetallesInmueblesFragment"
+        android:label="Inmueble"
+        tools:layout="@layout/fragment_detalles_inmuebles">
+        <action
+            android:id="@+id/action_detallesInmueblesFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallesContratosFragment"
+        android:name="com.agusoft.inmobiliaria.ui.contratos.detalles.DetallesContratosFragment"
+        android:label="Contrato"
+        tools:layout="@layout/fragment_detalles_contratos">
+        <action
+            android:id="@+id/action_detallesContratosFragment_to_nav_contratos"
+            app:destination="@id/nav_contratos" />
+        <action
+            android:id="@+id/action_detallesContratosFragment_to_pagosFragment"
+            app:destination="@id/pagosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pagosFragment"
+        android:name="com.agusoft.inmobiliaria.ui.contratos.pagos.PagosFragment"
+        android:label="Detalle de Pagos"
+        tools:layout="@layout/fragment_pagos">
+        <action
+            android:id="@+id/action_pagosFragment_to_detallesContratosFragment"
+            app:destination="@id/detallesContratosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inmuebleAgregarFragment"
+        android:name="com.agusoft.inmobiliaria.ui.inmuebles.agregar.InmuebleAgregarFragment"
+        android:label="Agregar Nuevo Inmueble"
+        tools:layout="@layout/fragment_agregar_inmueble" >
+        <action
+            android:id="@+id/action_inmuebleAgregarFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+
+</navigation>
